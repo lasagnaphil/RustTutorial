@@ -64,4 +64,13 @@ pub fn vec_min<T: Minimum>(v: Vec<T>) -> SomethingOrNothing<T> {
     min
 }
 
-
+// Add a 'Display' implementation to 'SomethingOrNothing'
+use std::fmt;
+impl<T: fmt::Display> fmt::Display for SomethingOrNothing<T> {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match *self {
+            Something(ref t) => t.fmt(f),
+            Nothing          => "Nothing".fmt(f),
+        }
+    }
+}

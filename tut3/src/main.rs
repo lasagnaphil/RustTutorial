@@ -25,9 +25,13 @@ fn read_vec() -> Vec<i32> {
 mod part02;
 use part02::{SomethingOrNothing, Something, Nothing, vec_min};
 
+fn read_vec_f32() -> Vec<f32> {
+    vec![15.02,37.30,52.26,34.26,32.56]
+}
+
 pub fn main()
 {
-    let vec = read_vec();
+    let vec = read_vec_f32();
     let min = vec_min(vec);
     min.print();
 }
@@ -35,7 +39,7 @@ pub fn main()
 trait Print {
     fn print2(self);
 }
-
+/*
 impl<T: Print> SomethingOrNothing<T> {
     fn print2(self) {
         match self {
@@ -44,4 +48,4 @@ impl<T: Print> SomethingOrNothing<T> {
         }
     }
 }
-
+*/
